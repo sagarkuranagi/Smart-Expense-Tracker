@@ -2,79 +2,204 @@
 
 A responsive personal finance tracker built with React + Vite, Express, Node.js, and MongoDB/Mongoose. Includes dashboard summaries, transaction CRUD, search/filtering, and a demo mode when MongoDB is not configured.
 
-## Requirements
-- Node.js 18+
-- npm
-- MongoDB local instance or MongoDB Atlas (optional for demo mode)
+ Project Objectives
 
-## Setup
+Simplify income and expense tracking.
 
-### 1. Backend
-```bash
-cd server
-cp .env.example .env
-npm install
-npm run dev
-```
-If MongoDB is available, set `MONGODB_URI` in `server/.env`. If it is not configured, the API uses in-memory demo data. Demo data resets when the server restarts.
-Set `JWT_SECRET` to a unique random value of at least 32 characters (generate one with the command in `.env.example`); in production, set `NODE_ENV=production` so session cookies are sent only over HTTPS. `CLIENT_ORIGIN` should match the frontend origin.
+Provide a clear overview of personal finances.
 
-### 2. Frontend
-Open another terminal:
-```bash
-cd client
-npm install
-npm run dev
-```
-Open the URL printed by Vite, usually http://localhost:5173.
+Organize transactions by category, type, and date.
 
-## Features
-- Email/password registration and sign-in with private, account-scoped transactions
-- Dashboard cards for income, expenses, and balance
-- Create, edit, and delete transactions
-- Search and filter by type/category
-- Download monthly or custom date-range CSV reports with income, expense, and balance totals
-- Scan JPG, PNG, or WebP receipts with in-browser OCR, review/correct extracted values, and check for possible duplicates
-- Monthly spending chart
-- Responsive layout
-- API validation and error handling
-- MongoDB persistence when configured; in-memory demo mode otherwise
+Visualize financial activity through charts and summaries.
 
-## API
-- `GET /api/health`
-- `POST /api/auth/register` — create an account (name, email, password)
-- `POST /api/auth/login` — sign in (email, password)
-- `GET /api/auth/me` — get the signed-in account
-- `POST /api/auth/logout` — clear the session
-- `GET /api/transactions?search=&type=&category=&dateFrom=YYYY-MM-DD&dateTo=YYYY-MM-DD`
-- `POST /api/transactions/duplicates` — validate a transaction candidate and return possible duplicates for the signed-in user
-- `GET /api/transactions/:id`
-- `POST /api/transactions`
-- `PUT /api/transactions/:id`
-- `DELETE /api/transactions/:id`
-- `GET /api/dashboard/summary`
+Support exporting transaction records for personal reporting.
 
-Authentication uses an HTTP-only, same-site cookie. When `MONGODB_URI` is absent, accounts and transactions are stored in memory and reset when the server restarts; configure MongoDB for persistent data.
-Receipt images (JPG, PNG, or WebP; up to 8 MB) are processed with Tesseract.js in the browser and are not uploaded to the API. OCR results are suggestions: review and correct the merchant, amount, date, and category before saving. The API validates duplicate-check candidates and returns same-account transactions with matching amounts and nearby dates; users can inspect the warning and explicitly choose to save anyway.
+Provide a responsive and user-friendly experience.
 
-Transaction example:
-```json
-{
-  "title": "Groceries",
-  "type": "expense",
-  "amount": 42.5,
-  "category": "Food",
-  "date": "2026-10-12",
-  "note": "Weekly shopping"
-}
-```
+✨ Key Features
 
-## Code0 and AI Development Experience
-Use Code0 in VS Code while reviewing and developing the project. Suggested tasks to document after actually completing them:
-1. Ask Code0 to explain the Express route/controller flow and review the result.
-2. Use Code0 to help diagnose API validation or database connection errors.
-3. Ask Code0 to review responsive CSS and identify layout issues.
-4. Generate or improve test cases, then run them and verify results.
-5. Refactor repeated UI or API logic and inspect the diff before accepting changes.
+1. User Authentication
 
-Only describe tasks you actually performed with Code0 in your final assessment README/submission.
+Login and account registration interface.
+
+Form-based authentication.
+
+Protected access to personal financial information, where configured by the backend.
+
+2. Financial Dashboard
+
+Displays total balance, total income, and total expenses.
+
+Presents financial information through summary cards.
+
+Includes cash-flow visualization and quick financial insights.
+
+Displays recent transaction activity.
+
+3. Transaction Management
+
+Add income and expense records.
+
+Enter transaction title, amount, category, date, and optional notes.
+
+Search transactions.
+
+Filter transactions by type and category.
+
+Edit and delete existing transactions.
+
+4. Reports and CSV Export
+
+Select a reporting period.
+
+Review financial records for the selected period.
+
+Export transaction data to a CSV file.
+
+Use exported data for personal records or spreadsheet analysis.
+
+5. Receipt Scanner
+
+Select a receipt image from the device.
+
+Extract available transaction information using browser-based OCR.
+
+Review extracted details before recording the transaction.
+
+Reduce manual data entry when receipt text is readable.
+
+6. Responsive User Interface
+
+Clean layout with a consistent visual design.
+
+Sidebar navigation for key application sections.
+
+Reusable React components.
+
+Responsive styling for different screen sizes.
+
+📸 Application Screenshots
+<img width="1915" height="913" alt="image" src="https://github.com/user-attachments/assets/1de689c2-3cf2-4833-93a2-22a0a8c734d0" />
+1. Login Page
+The login page provides a welcoming entry point to the application. It features a split-screen layout with product branding and introductory text alongside the sign-in form.
+
+Users can enter their email address and password or navigate to the account creation page. The interface uses a clear visual hierarchy, accessible form labels, and a prominent sign-in button.
+
+<img width="1897" height="912" alt="image" src="https://github.com/user-attachments/assets/05fd7dda-e8b5-4baa-b608-cfac1010f113" />
+
+2. Dashboard Overview
+
+The dashboard provides a consolidated view of the user's financial activity. It displays total balance, total income, and total expenses in separate summary cards.
+The page also includes reporting controls, cash-flow visualization, quick financial insights, and a recent transactions section. The Add Transaction button provides a direct way to record new financial activity.
+
+This overview helps users understand their current financial position without having to inspect each transaction individually.
+
+<img width="1901" height="913" alt="image" src="https://github.com/user-attachments/assets/3eaa7f57-5157-44e0-85f6-ac88374027ed" />
+
+3. Add Transaction Form
+
+The Add Transaction form allows users to record financial activity by selecting either Expense or Income.
+
+The form contains fields for:
+
+Transaction title.
+
+Amount in Indian rupees (₹).
+
+Category.
+
+Transaction date.
+
+Optional notes.
+
+The receipt-scanning option can help extract information from a receipt image. Users can review the details and submit the form to record the transaction.
+
+This feature supports consistent transaction entry and helps organize financial records.
+
+<img width="1897" height="907" alt="image" src="https://github.com/user-attachments/assets/6f1c143b-3114-4cbf-bf20-39544d104e84" />
+4. Transaction Management
+
+The transaction management section displays financial records in a structured table. Each record includes the transaction title, category, date, amount, and transaction type.
+
+Users can search for transactions, filter records by type or category, and use the available edit and delete actions to manage their entries.
+
+Income and expenses use different visual indicators, making the transaction history easier to scan and understand.
+
+<img width="1520" height="287" alt="image" src="https://github.com/user-attachments/assets/7b812e97-4fc6-42df-b280-b7d611195384" />
+
+5. Reports and CSV Export
+
+The Reports and Export section allows users to select a reporting period and download transaction information as a CSV file.
+
+CSV files can be opened in spreadsheet applications such as Microsoft Excel or Google Sheets. This makes it easier to review financial records, maintain personal documentation, or perform additional analysis.
+
+The export controls provide a convenient way to work with financial data outside the application.
+
+<img width="1900" height="911" alt="image" src="https://github.com/user-attachments/assets/1610bf3d-3651-4ae6-8675-2fc1ec7f5fbf" />
+
+6. Receipt Scanner
+
+The receipt scanner is integrated into the transaction entry workflow. Users can select a receipt image and use browser-based OCR to extract readable text, such as merchant information, amounts, and dates when available.
+
+Extracted information should be reviewed and corrected before saving because image quality, formatting, and receipt layouts can affect OCR accuracy.
+
+The goal is to reduce repetitive data entry while keeping the user in control of the final transaction details.
+
+
+🛠️ Technology Stack
+
+Frontend
+
+React.js
+
+JavaScript
+
+HTML5
+
+CSS3
+
+Vite
+
+Axios
+
+Recharts
+
+Lucide React icons
+
+Backend
+
+Node.js
+
+Express.js
+
+RESTful APIs
+
+Database
+
+MongoDB
+
+Mongoose
+
+Tools and Development
+
+Git
+
+GitHub
+
+Visual Studio Code
+
+Postman
+
+🏗️ Application Architecture
+
+The application follows a client-server architecture.
+
+React frontend: Renders the interface, handles user interactions, and displays financial information.
+
+API communication: Axios sends HTTP requests from the frontend to the backend.
+
+Express backend: Handles incoming requests, validation, authentication routes, transaction operations, and dashboard data.
+
+Database layer: Mongoose models define data structures and interact with MongoDB when database persistence is configured.
+
+Reporting and visualization: Transaction data is used to present financial summaries, charts, and downloadable reports.
