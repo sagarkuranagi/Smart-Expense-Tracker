@@ -79,22 +79,22 @@ Reusable React components.
 Responsive styling for different screen sizes.
 
 📸 Application Screenshots
-<img width="1915" height="913" alt="image" src="https://github.com/user-attachments/assets/1de689c2-3cf2-4833-93a2-22a0a8c734d0" />
 1. Login Page
 The login page provides a welcoming entry point to the application. It features a split-screen layout with product branding and introductory text alongside the sign-in form.
-
 Users can enter their email address and password or navigate to the account creation page. The interface uses a clear visual hierarchy, accessible form labels, and a prominent sign-in button.
 
-<img width="1897" height="912" alt="image" src="https://github.com/user-attachments/assets/05fd7dda-e8b5-4baa-b608-cfac1010f113" />
+<img width="1915" height="913" alt="image" src="https://github.com/user-attachments/assets/1de689c2-3cf2-4833-93a2-22a0a8c734d0" />
 
-2. Dashboard Overview
+
+3. Dashboard Overview
 
 The dashboard provides a consolidated view of the user's financial activity. It displays total balance, total income, and total expenses in separate summary cards.
 The page also includes reporting controls, cash-flow visualization, quick financial insights, and a recent transactions section. The Add Transaction button provides a direct way to record new financial activity.
 
 This overview helps users understand their current financial position without having to inspect each transaction individually.
 
-<img width="1901" height="913" alt="image" src="https://github.com/user-attachments/assets/3eaa7f57-5157-44e0-85f6-ac88374027ed" />
+<img width="1897" height="912" alt="image" src="https://github.com/user-attachments/assets/05fd7dda-e8b5-4baa-b608-cfac1010f113" />
+
 
 3. Add Transaction Form
 
@@ -116,7 +116,8 @@ The receipt-scanning option can help extract information from a receipt image. U
 
 This feature supports consistent transaction entry and helps organize financial records.
 
-<img width="1897" height="907" alt="image" src="https://github.com/user-attachments/assets/6f1c143b-3114-4cbf-bf20-39544d104e84" />
+<img width="1901" height="913" alt="image" src="https://github.com/user-attachments/assets/3eaa7f57-5157-44e0-85f6-ac88374027ed" />
+
 4. Transaction Management
 
 The transaction management section displays financial records in a structured table. Each record includes the transaction title, category, date, amount, and transaction type.
@@ -125,7 +126,7 @@ Users can search for transactions, filter records by type or category, and use t
 
 Income and expenses use different visual indicators, making the transaction history easier to scan and understand.
 
-<img width="1520" height="287" alt="image" src="https://github.com/user-attachments/assets/7b812e97-4fc6-42df-b280-b7d611195384" />
+<img width="1897" height="907" alt="image" src="https://github.com/user-attachments/assets/6f1c143b-3114-4cbf-bf20-39544d104e84" />
 
 5. Reports and CSV Export
 
@@ -135,7 +136,8 @@ CSV files can be opened in spreadsheet applications such as Microsoft Excel or G
 
 The export controls provide a convenient way to work with financial data outside the application.
 
-<img width="1900" height="911" alt="image" src="https://github.com/user-attachments/assets/1610bf3d-3651-4ae6-8675-2fc1ec7f5fbf" />
+<img width="1520" height="287" alt="image" src="https://github.com/user-attachments/assets/7b812e97-4fc6-42df-b280-b7d611195384" />
+
 
 6. Receipt Scanner
 
@@ -145,6 +147,7 @@ Extracted information should be reviewed and corrected before saving because ima
 
 The goal is to reduce repetitive data entry while keeping the user in control of the final transaction details.
 
+<img width="1900" height="911" alt="image" src="https://github.com/user-attachments/assets/1610bf3d-3651-4ae6-8675-2fc1ec7f5fbf" />
 
 🛠️ Technology Stack
 
